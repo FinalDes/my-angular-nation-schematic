@@ -2,14 +2,14 @@ import {
   Rule,
   SchematicContext,
   Tree,
-  SchematicsException,
-  chain,
   apply,
-  move,
-  template,
   url,
+  chain,
+  template,
+  mergeWith,
+  move,
   branchAndMerge,
-  mergeWith 
+  SchematicsException
 } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
 
@@ -19,17 +19,17 @@ import { strings } from '@angular-devkit/core';
 export function createStructure(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     const angularConfig = tree.read('/angular.json');
-    if(!angularConfig){
-      throw new SchematicsException('You are not in an Angular Project. Good Bye!');
+
+    if (!angularConfig) {
+      throw new SchematicsException('You are not in an Angular Project. Good bye!');
     }
-    const source =  apply(url('./files'),[
+    const source = apply(url('./files'), [
       template({
         ...strings,
         ..._options as object
       } as any),
       move(_options.path)
-    ])
-    return chain([branchAndMerge(chain([mergeWith(source)]))])(tree,_context);
-    // return tree;
+    ]);
+    return chain([branchAndMerge(chain([mergeWith(source)]))])(tree, _context);
   };
 }

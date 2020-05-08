@@ -5,11 +5,11 @@ import { Rule, SchematicContext, Tree, chain, schematic } from '@angular-devkit/
 // per file.
 export function myAngularNationSchematic(_options: any): Rule {
   return chain([
-    schematic('create-structure',_options),
+    schematic('create-structure', _options),
     (tree: Tree, _context: SchematicContext) => {
-      _context.logger.info('Hey I am running your schemactics!');
-      const filepath = 'readme.md';
-      tree.create(filepath,'Angular Nation is the best platform to meet friend');
+      _context.logger.info(' Hey! I am running your schematic!');
+      const filePath = 'readme2.md';
+      tree.create(filePath, 'If you want to follow this course, head to <a href="angularnation.net">Angular Nation</a>');
       return tree;
     },
   ]);

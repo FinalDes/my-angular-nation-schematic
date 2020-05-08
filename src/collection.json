@@ -4,6 +4,10 @@
     "my-angular-nation-schematic": {
       "description": "A blank schematic.",
       "factory": "./my-angular-nation-schematic/index#myAngularNationSchematic"
+    },
+    "create-structure": {
+      "description": "A blank schematic.",
+      "factory": "./create-structure/index#createStructure"
     }
   }
 }

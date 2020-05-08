@@ -1,9 +1,9 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "my-angular-nations-chematic": {
+    "my-angular-nation-schematic": {
       "description": "A blank schematic.",
-      "factory": "./my-angular-nations-chematic/index#myAngularNationsChematic"
+      "factory": "./my-angular-nation-schematic/index#myAngularNationSchematic"
     }
   }
 }
